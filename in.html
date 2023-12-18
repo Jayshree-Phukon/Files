@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>HEART DISEASE PREDICTION</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="age1">How old are you? </label>
+    	<input type="text" name="age" required="required" />
+        <label for="gender1">What is your gender?(enter 1 for male and 0 for female) </label>
+        <input type="text" name="gender" required="required" />
+        <label for="pain1">What type of chest pain do you experience? Enter 1 for typical angina, 2 for atypical angina, 3 for non-anginal pain, or 4 if you don't experience any chest pain.</label>
+		<input type="text" name="pain" required="required" />
+        <label for="bp1">What is your resting blood pressure in mm Hg? </label>
+        <input type="text" name="bp" required="required" />
+        <label for="chl">What is your cholesterol level in mg/dl?</label>
+        <input type="text" name="cholesterol" required="required" />
+        <label for="bldsgr">Is your fasting blood sugar greater than 120 mg/dl? Enter 1 for yes and 0 for no.</label>
+        <input type="text" name="bloodsugar" required="required" />
+        <label for="ecg1">What were your resting electrocardiographic results? Enter 0 for normal, 1 for having ST-T wave abnormality, or 2 for showing probable or definite left ventricular hypertrophy.</label>
+        <input type="text" name="ecglevel" required="required" />
+        <label for="hrtrate">What is your maximum heart rate achieved?</label>
+        <input type="text" name="maximum_heart_rate" required="required" />
+        <label for="angina1">Do you experience angina (chest pain) when you exercise? Enter 1 for yes and 0 for no.</label>
+        <input type="text" name="angina" required="required" />
+        <label for="st">What is your ST depression induced by exercise relative to rest?</label>
+        <input type="text" name="st_depression" required="required" />
+        <label for="slope1">What is the slope of the peak exercise ST segment? Enter 1 for upsloping, 2 for flat, or 3 for downsloping.</label>
+        <input type="text" name="slope" required="required" />
+        <label for="vessel1">how many of your major vessels are colored by fluoroscopy (0-3)?</label>
+        <input type="text" name="fluroscopy"  required="required" />
+        <label for="blddis">Do you have thalassemia, a blood disorder? Enter 3 for normal, 6 for fixed defect, or 7 for reversible defect.</label>
+        <input type="text" name="blooddisorder" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
+
